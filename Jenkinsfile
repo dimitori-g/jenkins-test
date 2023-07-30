@@ -16,21 +16,23 @@ pipeline {
                 sh """
                     source venv/bin/activate
                     pip install -r requirements.txt
-                    pytest
                 """
             }
         }
 
-        // stage('Test') {
-        //     steps {
-        //         sh "pytest"
-        //     }
+        stage('Test') {
+            steps {
+                sh """
+                    source venv/bin/activate
+                    pytest
+                """
+            }
 
-        //     post {
-        //         always {
-        //             sh "deactivate"
-        //         }
-        //     }
-        // }
+            // post {
+            //     always {
+            //         sh "deactivate"
+            //     }
+            // }
+        }
     }
 }
